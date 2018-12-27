@@ -1,0 +1,98 @@
+@import "mixin.less";
+@import "normalize.css";
+@import "font-awesome.css";
+@import "color.less";
+//========================
+// default
+//========================
+body,html {
+	font-family: "PingFang TC", "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+* {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+}
+
+input,
+textarea,
+select {
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	outline: 0;
+	margin: 0;
+	font-family: inherit;
+	.border-radius(0);
+	-webkit-appearance: none;
+}
+input:focus,
+textarea:focus,
+select:focus{
+    -webkit-appearance: none;
+}
+
+input[type="button"] {
+	cursor: pointer;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	outline: 0;
+	margin: 0;
+	font-family: inherit;
+}
+
+*:focus {
+	outline: 0;
+}
+
+
+
+
+
+//========================
+// module
+//========================
+
+
+
+
+
+
+
+
+
+
+
+
+//========================
+// page
+//========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:1400px){
+	@import "style_mid.less";
+}
+
+@media (max-width: 780px){
+	@import "style_mobile.less";
+}
