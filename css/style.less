@@ -151,6 +151,10 @@ input[type="button"] {
 		display: block;
 		position: absolute;
 		left: 0;
+		bottom: 0;
+		height: 60vh;
+		min-height: 480px;
+		width: 800px;
 	}
 	&__obj{
 		display: block;
@@ -291,6 +295,18 @@ input[type="button"] {
 		margin: 0;
 		color: rgba(51, 51, 51, 1);
 	}
+	&__desc{
+		position: relative;
+		 padding: 20px;
+		 line-height: 2em;
+		 left: 0%;
+		 bottom: 0%;
+	}
+	.link{
+		color: rgba(51, 51, 51, 1);
+		text-decoration: underline;
+		font-style: normal;
+	}
 	&__tags{
 		position: absolute;
 		z-index: 2;
@@ -335,6 +351,13 @@ input[type="button"] {
 		z-index: 99;
 		opacity: 1;
 		transform-origin: center top;
+	}
+	&--base{
+		bottom: 60%;
+		left: -30%;
+		.work__content{
+			width: 640px;
+		}
 	}
 	&--ar{
 		bottom: 35%;

@@ -122,7 +122,11 @@ $(document).ready(function(){
     function initControl(){
         setInterval(function(){
         
-        
+            if(recthit('.me__body', '#base .work__collsion')){
+                $('#base').addClass('on');
+            }else{
+                $('#base').removeClass('on');
+            }
 
             if(recthit('.me__body', '#police')){
                 $('.wrapper').addClass('gray');
