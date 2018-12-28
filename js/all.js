@@ -68,7 +68,10 @@ $(document).ready(function(){
                 idle: [2, 2, 2, 3, 3, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2 ,2]
             },
             loop: true,
-            autoplay: true
+            autoplay: true,
+            complete: function(){
+                console.log()
+            }
         });
         initControl();
     });

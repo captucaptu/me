@@ -191,7 +191,7 @@ input[type="button"] {
   height: 128px;
   background-image: url(../images/me.png);
   background-repeat: no-repeat;
-  background-size: auto 100%;
+  background-size: 512px 128px;
 }
 .me__name {
   display: block;
