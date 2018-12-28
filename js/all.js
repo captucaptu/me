@@ -38,22 +38,12 @@ var objs = [
 var meAct = 'idle';
 var meDir = 'right';
 var speed = 15;
-var mePos = 30;
-var stageMin = 30;
+var mePos = 256;
+var stageMin = 120;
 var stageMax = 30;
 var stageX = 0;
 
 $(document).ready(function(){
-    var me = $('.me__body');
-    me.animateSprite({
-        fps: 12,
-        animations: {
-            walk: [0, 1],
-            idle: [2, 2, 2, 3, 3, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2 ,2]
-        },
-        loop: true
-    })
-
     $(window).on('resize', function(){
         stageMax = $(this).width() - 512; 
     }).resize();
@@ -65,6 +55,27 @@ $(document).ready(function(){
         }, 300)
     });
 
+
+
+    var me = $('.me__body');
+    var meSprite = new Image();
+    meSprite.src = GetUrlRelativePath() + 'images/me.png';
+    meSprite.addEventListener('load', function(){
+        me.animateSprite({
+            fps: 12,
+            animations: {
+                walk: [0, 1],
+                idle: [2, 2, 2, 3, 3, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2 ,2]
+            },
+            loop: true
+        });
+        initControl();
+    });
+    
+
+    
+
+    
 
     function init() {
         $(window).on('keydown', function(e){
@@ -99,85 +110,88 @@ $(document).ready(function(){
         }
     })*/
     //console.log(me.collision('#police'))
-    setInterval(function(){
+    function initControl(){
+        setInterval(function(){
         
         
 
-        if(recthit('.me__body', '#police')){
-            $('.wrapper').addClass('gray');
-        }else{
-            $('.wrapper').removeClass('gray');
-        }
-
-        if(recthit('.me__body', '#ar .work__collsion')){
-            $('#ar').addClass('on');
-        }else{
-            $('#ar').removeClass('on');
-        }
-        if(recthit('.me__body', '#chess .work__collsion')){
-            $('#chess').addClass('on');
-        }else{
-            $('#chess').removeClass('on');
-        }
-        if(recthit('.me__body', '#ufo .work__collsion')){
-            $('#ufo').addClass('on');
-        }else{
-            $('#ufo').removeClass('on');
-        }
-
-        if(recthit('.me__body', '#board .work__collsion')){
-            $('#board').addClass('on');
-        }else{
-            $('#board').removeClass('on');
-        }
-
-        if(recthit('.me__body', '#gyrigym .work__collsion')){
-            $('#gyrigym').addClass('on');
-        }else{
-            $('#gyrigym').removeClass('on');
-        }
-
-
-        switch (meAct){
-            case 'walk':
-                me.animateSprite('fps', '6');
-                me.animateSprite('play', 'walk');
-                var dir = (meDir == 'right') ? 1 : -1;
-                var face = (meDir == 'right') ? 0 : 180;
-                mePos = (dir * speed) + mePos;
-                if(mePos >= stageMax){
-                    mePos = stageMax;
-                    stageX = (dir * speed * -1) + stageX;
-                    $('.milestones').css({
-                        'left': stageX + 'px',
-                    });
-                    $('.stage__buildings').css({
-                        'left': (stageX * 0.1) + 'px',
-                    });
-                }else if(mePos <= stageMin){
-                    mePos = stageMin;
-                    stageX = (dir * speed * -1) + stageX;
-                    $('.milestones').css({
-                        'left': stageX + 'px',
-                    });
-                    $('.stage__buildings').css({
-                        'left': (stageX * 0.1) + 'px',
-                    });
-                }else{
-                    $('.me').css({
-                        'left': mePos + 'px',
-                        'transform': 'rotateY(' + face + 'deg)'
-                    });
-                }
+            if(recthit('.me__body', '#police')){
+                $('.wrapper').addClass('gray');
+            }else{
+                $('.wrapper').removeClass('gray');
+            }
+    
+            if(recthit('.me__body', '#ar .work__collsion')){
+                $('#ar').addClass('on');
+            }else{
+                $('#ar').removeClass('on');
+            }
+            if(recthit('.me__body', '#chess .work__collsion')){
+                $('#chess').addClass('on');
+            }else{
+                $('#chess').removeClass('on');
+            }
+            if(recthit('.me__body', '#ufo .work__collsion')){
+                $('#ufo').addClass('on');
+            }else{
+                $('#ufo').removeClass('on');
+            }
+    
+            if(recthit('.me__body', '#board .work__collsion')){
+                $('#board').addClass('on');
+            }else{
+                $('#board').removeClass('on');
+            }
+    
+            if(recthit('.me__body', '#gyrigym .work__collsion')){
+                $('#gyrigym').addClass('on');
+            }else{
+                $('#gyrigym').removeClass('on');
+            }
+    
+    
+            switch (meAct){
+                case 'walk':
+                    me.animateSprite('fps', '6');
+                    me.animateSprite('play', 'walk');
+                    var dir = (meDir == 'right') ? 1 : -1;
+                    var face = (meDir == 'right') ? 0 : 180;
+                    mePos = (dir * speed) + mePos;
+                    if(mePos >= stageMax){
+                        mePos = stageMax;
+                        stageX = (dir * speed * -1) + stageX;
+                        $('.milestones').css({
+                            'left': stageX + 'px',
+                        });
+                        $('.stage__buildings').css({
+                            'left': (stageX * 0.1) + 'px',
+                        });
+                    }else if(mePos <= stageMin){
+                        mePos = stageMin;
+                        stageX = (dir * speed * -1) + stageX;
+                        $('.milestones').css({
+                            'left': stageX + 'px',
+                        });
+                        $('.stage__buildings').css({
+                            'left': (stageX * 0.1) + 'px',
+                        });
+                    }else{
+                        $('.me').css({
+                            'left': mePos + 'px',
+                            'transform': 'rotateY(' + face + 'deg)'
+                        });
+                    }
+                    
+                break;
+                default:
+                    me.animateSprite('fps', '10');
+                    me.animateSprite('play', 'idle');
+    
                 
-            break;
-            default:
-                me.animateSprite('fps', '10');
-                me.animateSprite('play', 'idle');
-
-            
-        }
-    }, 33);
+            }
+        }, 33);
+    }
+    
 
     function recthit(rectone, recttwo){
     
@@ -208,3 +222,17 @@ $(document).ready(function(){
     
 
 });
+
+
+
+function GetUrlRelativePath() {
+    var url = window.location.toString();
+    var arrUrl = url.split("//");
+
+    var paths = arrUrl[1].split("/");
+    paths.pop();
+    //paths = paths.pop();
+    
+    var relUrl = arrUrl[0] + '//' + paths.join('/') + '/'; 
+    return relUrl;
+}
