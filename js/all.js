@@ -60,7 +60,9 @@ $(document).ready(function(){
     var me = $('.me__body');
     var meSprite = new Image();
     meSprite.src = GetUrlRelativePath() + 'images/me.png?' + (new Date().getTime());
+    console.log(meSprite.src)
     meSprite.addEventListener('load', function(){
+        console.log('ani loaded')
         me.animateSprite({
             fps: 12,
             animations: {
@@ -70,7 +72,7 @@ $(document).ready(function(){
             loop: true,
             autoplay: true,
             complete: function(){
-                console.log()
+                console.log('ani end')
             }
         });
         initControl();
