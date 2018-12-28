@@ -1,0 +1,71 @@
+extends ./_tpl.jade
+block yield
+    .wrapper
+        .stage
+            .stage__bg
+            .stage__buildings
+            .stage__ground
+            .milestones
+                .milestones__live
+                    img.milestones__obj#taoyuan(src="images/taoyuan.png", alt="")
+                    img.milestones__obj#taichung(src="images/taichung.png", alt="")
+                    img.milestones__obj#tainan(src="images/tainan.png", alt="")
+                    img.milestones__obj#taipei(src="images/taipei.png", alt="")
+                .milestones__sccd
+                    img.milestones__obj.milestones__obj--bg#sccd(src="images/sccd.png", alt="")
+                    .work.work--ar#ar
+                        .work__collsion
+                        .work__video
+                            .work__video-wrapper
+                                iframe(width="640", height="360", src="https://www.youtube.com/embed/aNeRvGTx04E", frameborder="0", allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen)
+                        .work__content
+                            p.work__name AR & QR CODE 研究
+                            p.work__tags 2007, AR, QR CODE, 3Ds MAX, amire, artoolkit
+                    .work.work--chess#chess
+                        .work__collsion
+                        .work__video
+                            .work__video-wrapper
+                                iframe(width="640", height="360", src="https://www.youtube.com/embed/h8D9LH2U3mA", frameborder="0", allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;", allowfullscreen)
+                        .work__content
+                            p.work__name 棋偶戲 
+                            p.work__tags 2008, Virtools, 遊戲, 3Ds MAX
+                    .work.work--ufo#ufo
+                        .work__collsion
+                        .work__video
+                            .work__video-wrapper
+                                iframe(width="640", height="360", src="https://www.youtube.com/embed/iaZbwwl0i1A", frameborder="0", allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen)
+                        .work__content
+                            p.work__name Last UFO Hero
+                            p.work__tags 2009, Flash, ActionScript
+                    .work.work--board#board
+                        .work__collsion
+                        .work__video
+                            .work__video-wrapper
+                                iframe(width="640", height="360", src="https://www.youtube.com/embed/uU82kZvr5Pg", frameborder="0", allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen)
+                        .work__content
+                            p.work__name 東方行進曲 - 宣傳影片 
+                            p.work__tags 2010, Board Game, 影片製作, 剪接, 特效
+
+
+                .milestones__police
+                    img.milestones__obj.milestones__obj--bg#police(src="images/police.png", alt="")
+                .milestones__iii
+                    img.milestones__obj.milestones__obj--bg#iii(src="images/iii.png", alt="")
+                    .work.work--gyrigym#gyrigym
+                        .work__collsion
+                        .work__video
+                            .work__video-wrapper
+                                iframe(width="640", height="360", src="https://www.youtube.com/embed/GuYevtgFCco", frameborder="0", allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen)
+                        .work__content
+                            p.work__name Gyrigym 
+                            p.work__tags 2012 ~ 2013, Flash Games, Web, Kinect, UX
+                            p.work__awards Good Design Exhibition 2013 多媒體應用、數位內容與家庭等類別
+                                img.icon(src="images/gd.png")
+                .milestones__nd
+                    img.milestones__obj.milestones__obj--bg#nd(src="images/nd.png", alt="")
+            .me
+                .me__body
+                .me__name
+
+
+    script(src="js/all.js")
