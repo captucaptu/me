@@ -55,12 +55,12 @@ $(document).ready(function(){
         }, 300)
     });
 
-
+    console.log(GetUrlRelativePath() + 'images/me.png?' + (new Date().getTime()))
 
     var me = $('.me__body');
     var meSprite = new Image();
     meSprite.src = GetUrlRelativePath() + 'images/me.png?' + (new Date().getTime());
-    console.log(meSprite.src)
+    
     meSprite.addEventListener('load', function(){
         console.log('ani loaded')
         me.animateSprite({
