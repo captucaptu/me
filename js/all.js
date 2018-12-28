@@ -59,7 +59,7 @@ $(document).ready(function(){
 
     var me = $('.me__body');
     var meSprite = new Image();
-    meSprite.src = GetUrlRelativePath() + 'images/me.png';
+    meSprite.src = GetUrlRelativePath() + 'images/me.png?' + (new Date().getTime());
     meSprite.addEventListener('load', function(){
         me.animateSprite({
             fps: 12,
@@ -67,7 +67,8 @@ $(document).ready(function(){
                 walk: [0, 1],
                 idle: [2, 2, 2, 3, 3, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2 ,2]
             },
-            loop: true
+            loop: true,
+            autoplay: true
         });
         initControl();
     });
