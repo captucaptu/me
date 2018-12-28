@@ -55,7 +55,7 @@ $(document).ready(function(){
         }, 300)
     });
 
-    console.log(GetUrlRelativePath() + 'images/me.png?' + (new Date().getTime()))
+    //console.log(GetUrlRelativePath() + 'images/me.png?' + (new Date().getTime()))
 
     var me = $('.me__body');
     var meSprite = new Image();
@@ -63,7 +63,10 @@ $(document).ready(function(){
     
     meSprite.addEventListener('load', function(){
         console.log('ani loaded')
-        me.animateSprite({
+        $('.me__body').css({
+            'background-image': 'url(./images/me.png)'
+        });
+        $('.me__body').animateSprite({
             fps: 12,
             animations: {
                 walk: [0, 1],
@@ -72,7 +75,7 @@ $(document).ready(function(){
             loop: true,
             autoplay: true,
             complete: function(){
-                console.log('ani end')
+                console.log('ani end');
             }
         });
         initControl();
