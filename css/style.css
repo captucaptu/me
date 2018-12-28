@@ -59,6 +59,7 @@ input[type="button"] {
   height: 100%;
   position: relative;
   transform-origin: left bottom;
+  transform: scale(2);
   transition: all 0.2s cubic-bezier(1, 0, 0, 1);
 }
 .wrapper.start {

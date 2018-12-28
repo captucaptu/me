@@ -63,24 +63,24 @@ $(document).ready(function(){
     
     meSprite.addEventListener('load', function(){
         console.log('ani loaded')
-        $('.me__body').css({
-            'background-image': 'url(./images/me.png)'
-        });
-        $('.me__body').animateSprite({
-            fps: 12,
-            animations: {
-                walk: [0, 1],
-                idle: [2, 2, 2, 3, 3, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2 ,2]
-            },
-            loop: true,
-            autoplay: true,
-            complete: function(){
-                console.log('ani end');
-            }
-        });
-        initControl();
+        
     });
-    
+    $('.me__body').css({
+        'background-image': 'url(./images/me.png)'
+    });
+    $('.me__body').animateSprite({
+        fps: 12,
+        animations: {
+            walk: [0, 1],
+            idle: [2, 2, 2, 3, 3, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2 ,2]
+        },
+        loop: true,
+        autoplay: true,
+        complete: function(){
+            console.log('ani end');
+        }
+    });
+    initControl();
 
     
 
