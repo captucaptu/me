@@ -146,7 +146,8 @@ input[type="button"] {
   position: absolute;
   bottom: 0;
   left: 2454px;
-  height: 640px;
+  height: 60vh;
+  min-height: 480px;
   width: 1366px;
 }
 .milestones__police {
@@ -154,7 +155,8 @@ input[type="button"] {
   position: absolute;
   bottom: 0;
   left: 4079px;
-  height: 640px;
+  height: 60vh;
+  min-height: 480px;
   width: 1790px;
 }
 .milestones__iii {
@@ -162,7 +164,8 @@ input[type="button"] {
   position: absolute;
   bottom: 0;
   left: 6146px;
-  height: 640px;
+  height: 60vh;
+  min-height: 480px;
   width: 1060px;
 }
 .milestones__nd {
@@ -170,7 +173,8 @@ input[type="button"] {
   position: absolute;
   bottom: 0;
   left: 7464px;
-  height: 640px;
+  height: 60vh;
+  min-height: 480px;
   width: 876px;
 }
 .me {
@@ -276,28 +280,29 @@ input[type="button"] {
 .work.on {
   transform: scale(1);
   z-index: 99;
+  transform-origin: center top;
 }
 .work--ar {
-  bottom: 50%;
+  bottom: 35%;
   left: -10%;
   transform: scale(0.3);
 }
 .work--chess {
-  bottom: 40%;
+  bottom: 43%;
   left: 18%;
   transform: scale(0.4);
 }
 .work--ufo {
-  bottom: 50%;
+  bottom: 35%;
   left: 40%;
 }
 .work--board {
-  bottom: 30%;
-  left: 80%;
+  bottom: 28%;
+  left: 75%;
 }
 .work--gyrigym {
-  bottom: 45%;
-  left: 30%;
+  bottom: 25%;
+  left: 45%;
 }
 @media (max-width: 1400px) {
 }
