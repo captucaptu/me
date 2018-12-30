@@ -120,14 +120,34 @@ $(document).ready(function(){
     })*/
     //console.log(me.collision('#police'))
     function initControl(){
+        var yturl = 'https://www.youtube.com/embed/'
         setInterval(function(){
-        
-            if(recthit('.me__body', '#base .work__collsion')){
+            
+            
+            $('.work__collsion').each(function(item, key){
+                var work = $(this).parents('.work');
+                var video = work.find('iframe');
+                if(recthit($(this), $('.me__body'))){
+                    work.addClass('on');
+                    if(video && video.attr('src') != (yturl + video.attr('data-yid') + '?autoplay=1&mute=1')){
+                        video.attr('src', '');
+                        video.attr('src', yturl + video.attr('data-yid') + '?autoplay=1&mute=1');
+                    }
+                }else{
+                    work.removeClass('on');
+                    if(video && video.attr('src') != (yturl + video.attr('data-yid') + '?&mute=1')){
+                        video.attr('src', '');
+                        video.attr('src', yturl + video.attr('data-yid') + '?&mute=1');
+                    }
+                }
+            });
+
+            /*
+            if(recthit('.me__body', '.work__collsion')){
                 $('#base').addClass('on');
             }else{
                 $('#base').removeClass('on');
             }
-
             if(recthit('.me__body', '#police')){
                 $('.wrapper').addClass('gray');
             }else{
@@ -161,6 +181,8 @@ $(document).ready(function(){
             }else{
                 $('#gyrigym').removeClass('on');
             }
+
+            i*/
     
     
             switch (meAct){
@@ -206,10 +228,10 @@ $(document).ready(function(){
     }
     
 
-    function recthit(rectone, recttwo){
+    function recthit(r1, r2){
     
-        var r1 = $(rectone);
-        var r2 = $(recttwo);
+        //var r1 = $(rectone);
+        //var r2 = $(recttwo);
         
         var r1x = r1.offset().left;
         var r1w = r1.width();
