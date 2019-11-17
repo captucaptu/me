@@ -37,7 +37,7 @@ var objs = [
 
 var meAct = 'idle';
 var meDir = 'right';
-var speed = 15;
+var speed = 20;
 var mePos = 256;
 var stageMin = 120;
 var stageMax = 30;
@@ -71,8 +71,8 @@ $(document).ready(function(){
     $('.me__body').animateSprite({
         fps: 12,
         animations: {
-            walk: [0, 1],
-            idle: [2, 2, 2, 3, 3, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2 ,2]
+            walk: [1, 2, 3, 4, 5],
+            idle: [6,6,6,7,7,7,6,6,6,6,7,7,7,6,6,6,6,6,6,6,6,6]
         },
         loop: true,
         autoplay: true,
@@ -187,13 +187,16 @@ $(document).ready(function(){
     
             switch (meAct){
                 case 'walk':
-                    me.animateSprite('fps', '6');
+                    //me.animateSprite('fps', '6');
                     me.animateSprite('play', 'walk');
                     var dir = (meDir == 'right') ? 1 : -1;
                     var face = (meDir == 'right') ? 0 : 180;
                     mePos = (dir * speed) + mePos;
                     if(mePos >= stageMax){
                         mePos = stageMax;
+                        if(stageX <= ($('.milestones__nd').position().left + $('.milestones__nd').width()/2) * -1){
+                            return false;
+                        }
                         stageX = (dir * speed * -1) + stageX;
                         $('.milestones').css({
                             'left': stageX + 'px',
@@ -203,6 +206,9 @@ $(document).ready(function(){
                         });
                     }else if(mePos <= stageMin){
                         mePos = stageMin;
+                        if((stageX==0)&&mePos<=stageMin){
+                            return false;
+                        }
                         stageX = (dir * speed * -1) + stageX;
                         $('.milestones').css({
                             'left': stageX + 'px',
@@ -219,7 +225,7 @@ $(document).ready(function(){
                     
                 break;
                 default:
-                    me.animateSprite('fps', '10');
+                    //me.animateSprite('fps', '30');
                     me.animateSprite('play', 'idle');
     
                 

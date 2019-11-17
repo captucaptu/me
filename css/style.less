@@ -164,13 +164,16 @@ input[type="button"] {
 			left: 157px;
 		}
 		&#taichung{
-			left: 393px;
+			left: 300px;
+			bottom: -2px;
+			z-index: 3;
 		}
 		&#tainan{
-			left: 895px;
+			left: 740px;
+			bottom: 2px;
 		}
 		&#taipei{
-			left: 1396px;
+			left: 1180px;
 		}
 	}
 	
@@ -178,7 +181,7 @@ input[type="button"] {
 		display: block;
 		position: absolute;
 		bottom: 0;
-		left: 2454px;
+		left: 2454px - 300px;
 		height: 60vh;
 		min-height: 480px;
 		width: image-width('../images/sccd.png');
@@ -187,7 +190,7 @@ input[type="button"] {
 		display: block;
 		position: absolute;
 		bottom: 0;
-		left: 4079px;
+		left: 4079px - 300px;
 		height: 60vh;
 		min-height: 480px;
 		width: image-width('../images/police.png');
@@ -196,7 +199,7 @@ input[type="button"] {
 		display: block;
 		position: absolute;
 		bottom: 0;
-		left: 6146px;
+		left: 6146px - 2100px - 300px;
 		height: 60vh;
 		min-height: 480px;
 		width: image-width('../images/iii.png');
@@ -205,7 +208,7 @@ input[type="button"] {
 		display: block;
 		position: absolute;
 		bottom: 0;
-		left: 7464px;
+		left: 7464px - 2100px - 300px;
 		height: 60vh;
 		min-height: 480px;
 		width: image-width('../images/nd.png');
@@ -219,13 +222,14 @@ input[type="button"] {
 	bottom: 50px;
 	width: 128px;
 	height: 128px;
+	z-index: 99;
 	&__body{
 		display: block;
 		width: 128px;
 		height: 128px;
 		background-image: url(../images/me.png);
 		background-repeat: no-repeat;
-		background-size: (128px * 4) 128px;
+		background-size: (128px * 8) 128px;
 	}
 	&__name{
 		display: block;
@@ -321,7 +325,7 @@ input[type="button"] {
 		font-size: 20px;
 		font-weight: bold;
 		right: -10%;
-		bottom: -5%;
+		bottom: -20px;//-5%;
 		color: rgba(51, 51, 51, 1);
 	}
 	&__awards{
@@ -338,7 +342,7 @@ input[type="button"] {
 		font-size: 20px;
 		font-weight: bold;
 		right: -10%;
-		bottom: -18%;
+		bottom: -72px;//-18%;
 		color: rgba(51, 51, 51, 1);
 		.icon{
 			position: absolute;
@@ -380,6 +384,33 @@ input[type="button"] {
 	&--gyrigym{
 		bottom: 25%;
 		left: 45%;
+	}
+	&--nd{
+		bottom: 60%;
+		left: 10%;
+		width: 640px;
+		.icon{
+			display: block;
+			width: 40
+		}
+	}
+	&__sites{
+		display: block;
+		position: relative;
+		line-height: 2em;
+		a{
+			text-decoration: underline;
+			position: relative;
+		}
+		.icon{
+			display: inline-block;
+			width: 1em;
+			background-color: white;
+			position: absolute;
+			left: -1.2em;
+			top: -.5em;
+			border: 2px solid #333;
+		}
 	}
 }
 
