@@ -194,7 +194,7 @@ $(document).ready(function(){
                     mePos = (dir * speed) + mePos;
                     if(mePos >= stageMax){
                         mePos = stageMax;
-                        if(stageX <= ($('.milestones__nd').position().left + $('.milestones__nd').width()/2) * -1){
+                        if(stageX <= ($('.milestones__nd').position().left + $('.milestones__nd').width()) * -1){
                             return false;
                         }
                         stageX = (dir * speed * -1) + stageX;
