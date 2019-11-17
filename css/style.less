@@ -16,12 +16,15 @@ body,html {
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
+	cursor: none;
+	user-select: none;
 }
 
 
 a {
 	text-decoration: none;
 	color: inherit;
+	cursor: pointer;
 }
 
 * {
@@ -147,6 +150,7 @@ input[type="button"] {
 	margin-left: 50vw;
 	bottom: 90px;
 	width: 8400px;
+	
 	&__live{
 		display: block;
 		position: absolute;
@@ -414,6 +418,19 @@ input[type="button"] {
 	}
 }
 
+
+.arrow{
+	display: block;
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	background-image: url(../images/arrow.png);
+	background-size: 100% 100%;
+	z-index: 999;
+	&.turn{
+		transform: rotateY(180deg);
+	}
+}
 
 
 

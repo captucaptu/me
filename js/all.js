@@ -42,13 +42,16 @@ var mePos = 256;
 var stageMin = 120;
 var stageMax = 30;
 var stageX = 0;
+var mouseX = 0;
+var mouseY = 0;
+var isKeyDown = false;
 
 $(document).ready(function(){
     $(window).on('resize', function(){
         stageMax = $(this).width() - 512; 
     }).resize();
 
-    $(window).one('keydown', function(){
+    $(window).one('keydown mousedown', function(){
         $('.wrapper, .me__name').addClass('start');
         setTimeout(function(){
             init();
@@ -88,7 +91,8 @@ $(document).ready(function(){
 
     function init() {
         $(window).on('keydown', function(e){
-            console.log(e.keyCode)
+            //console.log(e.keyCode)
+            isKeyDown = true;
             if(e.keyCode == 39){
                 //walk right
                 meAct = 'walk';
@@ -103,6 +107,7 @@ $(document).ready(function(){
             //me.trigger(meAct);
         });
         $(window).on('keyup', function(){
+            isKeyDown = false;
             meAct = 'idle';
             //me.trigger(meAct);
         });
@@ -189,6 +194,11 @@ $(document).ready(function(){
                 case 'walk':
                     //me.animateSprite('fps', '6');
                     me.animateSprite('play', 'walk');
+                    // if(mouseX >= $('.me').position().left && !isKeyDown){
+                    //     meDir = 'right';
+                    // }else{
+                    //     meDir = 'left';
+                    // }
                     var dir = (meDir == 'right') ? 1 : -1;
                     var face = (meDir == 'right') ? 0 : 180;
                     mePos = (dir * speed) + mePos;
@@ -261,8 +271,40 @@ $(document).ready(function(){
     }//end function 
 
     
+    $('body').on('mousemove', function(e){
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+        $('.arrow').css({
+            'left': mouseX + 'px',
+            'top' : mouseY + 'px'
+        });
+        if(mouseX >= $('.me').position().left){
+            $('.arrow').removeClass('turn');
+        }else{
+            $('.arrow').addClass('turn');
+        }
+    }).on('mousedown', function(e){
+        isKeyDown = false;
+        if(mouseX >= $('.me').position().left){
+            meAct = 'walk';
+            meDir = 'right';
+        }else{
+            meAct = 'walk';
+            meDir = 'left';
+        }
+    }).on('mouseup', function(){
+        isKeyDown = false;
+        meAct = 'idle';
+    });
+
+    function cursorMove(){
+        
+        //requestAnimationFrame
+    }
 
 });
+
+
 
 
 
